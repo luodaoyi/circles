@@ -60,6 +60,8 @@ group :development do
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 
+  gem 'travis', require: false
+
   # 其中`capistrano-rails`包含了以下三个插件。
   # gem 'capistrano/bundler'
   # gem 'capistrano/rails/assets'

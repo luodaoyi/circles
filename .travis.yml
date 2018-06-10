@@ -1,17 +1,12 @@
 language: ruby
-
 services:
-  - mysql
-
+- mysql
 before_install:
-##  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-   - mysql -e 'CREATE DATABASE IF NOT EXISTS circles_test CHARACTER SET utf8mb4;'
-   - "cp ./.travis.database.yml ./config/database.yml"
+- mysql -e 'CREATE DATABASE IF NOT EXISTS circles_test CHARACTER SET utf8mb4;'
+- cp ./.travis.database.yml ./config/database.yml
 after_success:
-  - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
-#  - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap deploy"
-  - "bundle exec cap production deploy"
-
+- openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa
+- bundle exec cap production deploy
 env:
   global:
-    secure: O2328Mgc/ssabk5va9dskSYXeNGRSUQrtH7DgNa7WMvYzZ8oNUDwIAW9aK7bOBdW7tV0P2ItqzrnevHWuwy4DW6G+AuhhE6YUIivVK5Qtq0FISNa/oYyY3QcoB14DWHr0XY4UTN+E13hZV5SjZf9nlVjBWqIzjc8HrxHu9Jr1T4f9F1JxlOTS76h7mwjyWTYprXMfGXlr3/gxppfPZujgF6en6sgKpE1+CaIkl1yhspSHxJrNR/ojGnJVnMGhzUQF/70bN5c1+RSp0Y7swKdSvSMZNv+o/UlXicFGdxiUPqlIGuvxAXkhP6pH6DWzAipLrALUOFpDa6Yx7ybYgUzw0M77+xiGeZdyEPVJGI+9KUxxJFmFRJpO7qTh9EHk7Sy3ACZgOw4O5Z7W7jhXEutbt3tqoKDil4vj4j0FHnhkNx4jkyBCZPz14Sus9wsDx8RDnmmWNfsbr3WVRCPBhJj5N82Uc4l0AbG1GNTqNUBECibT92RJOO8ZjWcNs8ImJFwgDJCJssohVkcW2Ak9hVSS6zxb4yDLlb+jKeB35mVY40DZQ529CT+my+QS7Da9SJPfIDZNvfnNRll+hvDRLE56uofM/4PAfU+uHd+cTG5yMasJdO355PIgjt0X2fz0Fijp28sfyWh7vhHuhCH/+DAlhZoS8t2QORtiGZ7gQ5CxTg=
+    secure: lmhs3tPFMo9GQVOaAA84lOWdbFf4dwllAZ4iBwegEge0+80PDJslqDXY93I9VlMz7VQgyePpT28j8gkZMaISENx5R/YHkzsa6T5h/kzGGY8mMndNe110KENZrN/I0oh3b5C0PzDVgljKbcqxAuxz+jnCsPUQM0qy5ozpLkQNIzc+P9qKn2g4gCV5QYE1USH56TZOMdiURuiMU2xWk69asa5ufVtgf8rwbwq+f0Yu6e+LR5zWWOecWT8WamLHe/gQJOAPQSSRgfVJRT6fYwvX65kqvIu6T78IL6VTtDYJwebJlHt8tcZk1WX5F3vDOfCSrix/HqU5cM2/HkdTLhSZwm3rNCvQTwAaoDPvFGnfueUaoA5ikJYN7p+fM/OaYxqXNbP4GE1dDr81Q0mZS5zAkC+WaYC9t4shnTHj24j/x28QiFLcAUmwFn64VaaqfdgJ+sQsjBF1eN0mxFvkSfR1lr0dSyQjdJ9jyb1akUVY/HnTFNpCGL7af3UtgqS2LCnvsygxlT/JG0mTkB32pzo1Npd6wSf1a4+t/kirLn7xF3sHjtexlEMaWOIX+vpyvnjs03+gPh9FvWe7j7I3BdmM82kcw1YgBDXkXwUmUMVstAdz1so5OvgvDX/Pan45Grxf86rek1ChmxNguIniFqoTFDREh3QGfb+isqzTSUseEbU=
