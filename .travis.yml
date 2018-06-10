@@ -3,14 +3,15 @@ language: ruby
 services:
   - mysql
 
-before_install:
-#  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
-   - mysql -e 'CREATE DATABASE circles_test CHARACTER SET utf8mb4;;'
+#before_install:
+##  - mysql -e 'CREATE DATABASE IF NOT EXISTS test;'
+#   - mysql -e 'CREATE DATABASE IF NOT EXISTS circles_test CHARACTER SET utf8mb4;'
 
 after_success:
   - "openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa"
 #  - "[[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap deploy"
   - bundle exec cap deploy"
+
 env:
   global:
     secure: O2328Mgc/ssabk5va9dskSYXeNGRSUQrtH7DgNa7WMvYzZ8oNUDwIAW9aK7bOBdW7tV0P2ItqzrnevHWuwy4DW6G+AuhhE6YUIivVK5Qtq0FISNa/oYyY3QcoB14DWHr0XY4UTN+E13hZV5SjZf9nlVjBWqIzjc8HrxHu9Jr1T4f9F1JxlOTS76h7mwjyWTYprXMfGXlr3/gxppfPZujgF6en6sgKpE1+CaIkl1yhspSHxJrNR/ojGnJVnMGhzUQF/70bN5c1+RSp0Y7swKdSvSMZNv+o/UlXicFGdxiUPqlIGuvxAXkhP6pH6DWzAipLrALUOFpDa6Yx7ybYgUzw0M77+xiGeZdyEPVJGI+9KUxxJFmFRJpO7qTh9EHk7Sy3ACZgOw4O5Z7W7jhXEutbt3tqoKDil4vj4j0FHnhkNx4jkyBCZPz14Sus9wsDx8RDnmmWNfsbr3WVRCPBhJj5N82Uc4l0AbG1GNTqNUBECibT92RJOO8ZjWcNs8ImJFwgDJCJssohVkcW2Ak9hVSS6zxb4yDLlb+jKeB35mVY40DZQ529CT+my+QS7Da9SJPfIDZNvfnNRll+hvDRLE56uofM/4PAfU+uHd+cTG5yMasJdO355PIgjt0X2fz0Fijp28sfyWh7vhHuhCH/+DAlhZoS8t2QORtiGZ7gQ5CxTg=
