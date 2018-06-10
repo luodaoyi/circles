@@ -41,6 +41,8 @@ gem 'jquery-rails'
 gem 'bootstrap'
 gem "font-awesome-rails"
 
+# 分页组件
+gem 'will_paginate', '~> 3.1.0'
 ######################
 
 
