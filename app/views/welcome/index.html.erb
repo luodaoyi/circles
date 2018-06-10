@@ -1,2 +1,14 @@
-<h1>Welcome#index</h1>
-<p>Find me in app/views/welcome/index.html.erb</p>
+
+
+<% if @user %>
+  <h1>欢迎你,<%= @user.username %></h1>
+<% else %>
+  <h1>Circles 首页</h1>
+<% end %>
+
+
+
+<div>
+  <% a = "<h3>Hello</h3>" %>
+  <%= a.html_safe %>
+</div>
