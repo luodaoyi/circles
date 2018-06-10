@@ -39,7 +39,7 @@ gem 'jbuilder', '~> 2.5'
 
 gem 'jquery-rails'
 gem 'bootstrap'
-
+gem "font-awesome-rails"
 
 ######################
 

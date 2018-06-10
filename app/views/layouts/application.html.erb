@@ -16,30 +16,33 @@
 
 <head name="top">
   <div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom box-shadow">
-    <h5 class="my-0 mr-md-auto font-weight-normal">Circles</h5>
+    <h5 class="my-0 mr-md-auto font-weight-normal"><a href="/">Circles</a></h5>
     <nav class="my-2 my-md-0 mr-md-3">
       <a class="p-2 text-dark" href="#">Features</a>
       <a class="p-2 text-dark" href="#">Enterprise</a>
       <a class="p-2 text-dark" href="#">Support</a>
       <a class="p-2 text-dark" href="#">Pricing</a>
     </nav>
-    <a class="btn btn-outline-primary" href="#">Sign up</a>
+
+    <% if session[:user_id] %>
+      <%= link_to "#{@user.username},退出", session_path(@user), method: 'delete', class: 'btn btn-outline-dark' %>
+    <% else %>
+      <%= link_to '登录', new_session_path, class: 'btn btn-outline-primary' %>
+    <% end %>
   </div>
 
 
   <div class="container">
-    <% if flash[:notice]%>
-      <div class="alert alert-info" role="alert">
-        <%= flash[:notice]%>>
-      </div>
-    <% end -%>
+    <% if flash[:notice] %>
+      <div class="alert alert-info"><%= flash[:notice] %></div>
+    <% end %>
 
     <%= yield %>
 
     <footer class="pt-4 my-md-5 pt-md-5 border-top">
       <div class="row">
         <div class="col-12 col-md">
-<!--          <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">-->
+          <!--          <img class="mb-2" src="https://getbootstrap.com/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">-->
           <small class="d-block mb-3 text-muted">&copy; 2017-2018</small>
         </div>
         <div class="col-6 col-md">
@@ -75,7 +78,6 @@
     </footer>
 
   </div>
-
 
 
 </body>
