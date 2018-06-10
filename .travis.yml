@@ -10,7 +10,7 @@ before_install:
 - cp ./.travis.database.yml ./config/database.yml
 after_success:
 - openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out ~/.ssh/id_rsa
-- [[ $TRAVIS_BRANCH = 'master' ]] && bundle exec cap production deploy
+- bundle exec cap production deploy
 env:
   global:
     secure: IpRcaJNhVK+XAzCvKQA8tFcR0/61y1wbnlOfxuQ3izUBkCAWe9kVvbUH2cje8w/DBnVp5/me6M7hLaGoxrDOJXcOQtwK7umuFnsnm58t+lvMGaVUAGjImq3IkavL6lHsbxzmGoanpVU+S7hlS4pBLJ4yAFD8KRc17Dk7/Dup5w5ke5DjapHRDaMPRB1njb2dvCPpSJdKT6i2YuvIAL43xOmolR8ygEA7cLx0JK30g7CcJICGnJuYZBorXVIL3pmsh05mHOEfgrI7to1g3OTc7eVqV3KF8QfriQ9ltKhxbWJdRujiJrszywQEmmf9P4BSVsB1jPhR+Ipb0h+qkJ5267wjWeuZv2c6xNgS0KpkajECqsQ9HEibutIi2eAk4c4NUwOkDy1o8aypkG0L/dFYUpmvVOs3ckCK1evtFiqt57qJGv/ovvnDf6JfLZAE/H2TrYVp7QD4NiOCavMVEBS3c2bp7qkx++sUYPS90ifeMOY2MuRzFktqWriDkEVFXvdfD4tX6Sr7929HSnQQlijPlLm8e3D7OJ0FuidfVdmSOZbnuMyF1nWJJDzdQUrnWzqCZPoSUjJwVX19/6vZMMawSt0EwAkoYACjiwH8RWHYn/1X9XiYlNLQAaHY/w9ce+tFdWOXqmxP74IBeN7lveZWibJ6C1u+ISpSXi5udsbdSeg=
