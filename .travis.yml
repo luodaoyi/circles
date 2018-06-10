@@ -5,10 +5,11 @@ before_install:
 - mysql -e 'CREATE DATABASE IF NOT EXISTS circles_test CHARACTER SET utf8mb4;'
 - cp ./.travis.database.yml ./config/database.yml
 after_success:
-- openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out config/deploy_id_rsa
+- openssl aes-256-cbc -k $DEPLOY_KEY -in config/deploy_id_rsa_enc_travis -d -a -out
+  config/deploy_id_rsa
 - ls -l config
 - cat config/deploy_id_rsa
 - bundle exec cap production deploy
 env:
   global:
-    secure: Qm/fZ1aibA+V+FVJtqRVAPqqvAV/l3tsfVcTE7w19SwOuSDwRDTFciKEEdf8BO5eoh8wPu/mzB634GF3Q1+3C8IYBoD7+MhI+9X6CD0hummckaHyO5qls70+QlwRAvDhQUOe1TvvsNR8hXgJDsRwAaehs89/qGSG7+dyFRFHc7txzFnJcctyjHUkkSNco1nsUzYh2auqNLRGcuIqYkYVXg+/eiTWbUzJCOsMPvtadFAv94Et8VGhPRTnruBl+M619EF/+4iTi59P8kWrp8hyl7UEyqgbRrvlvBgrk1XPtGQAPtH/QCLFUsIcQxod84TPSTe6HQV36vHSLTamHmWJ1jCe5rrK62TL0yvqPlLx7T8Xn+RrKr3ZUXZtq+MiX2QArZYRGDkrd+oHMfz4UTTr/kV9OkUDNgZQTqZTVWtooMcYqDMa6xlRC5ZLg0AnqDZYKo0DEs+QcD4N+N0qulSXl+PRE0mc8C4M08ETvmz2qe6Z93kQtLuJeyezWwQa7qfxnJrtQfAbW03/+l2y1/HY7qXlRQ5HCnKxkjLB2vD6xmP6CC6kH1K0WPGAdEhdzFqxGXE9pV/s4Ev6kxUegvrvgT8cWT4qVAoDNQfSmZftlx6tkx0UeaRKQsX0nBBta2B1Nz6fIwbb7OOgj2CFX2h0B+7SX76HHVgLdZjcC1dcHfU=
+    secure: nGzli4h8vAXCZh35XW5k7/BrPBGK1izZwMtuv1Gi2u8mCJXAyGDddteJBvxEKfjaCGLg+Utb63lL12yRcKmZrMYn8bZIVEm4bzFkWRTInlpR+pNxqPJaO07QraTGNtUEc/lF4Y11S6NQTKpkveVSXL+dB8GdBzm9YXMsKaWSQYUxAcvlIQmnVTI+dXZhNDDR6GmYIWKGPCMnoRlr7ie6MBoG5OsahraYP4BAF6zDrYCFkuS9Fz6Vckt0ZrEAcAC6yjfwDlQyGl0Cc4J1CzM/FdtKoIPG9MobS3g5l5Hh+tVWae/vmmXq6aSrKdVQ861gHerNS2kT8ht57oPkufCnbw85kS0Kn5C+AfJ/jHc3SZ6u1DsBW1JC2nJqqNJh6zXD9tkNlTEtq2N+s4IzR390YEDR2YJCytQroSMeu8KLmFVZsQzPP1xuYF8TtQ0WAhO0p99Ypm257QHUOD6RPQ4OLJNL7kLuXNw1/9knrpt8Co1BGzJV8nogMq2TYxiDk29/l4APiSWQRq0djCtdfS1Tz87eTbXJxpRgXxYVpNT69QxsFFw6+Kkt2ojZ62aDRFdVkrNy+RNPd1WUnUyKBqb+rUXQe8Ayv31xz/3gEd7aL4tCsSljyrtVED/LTgTio+bdLuFFX2J56dHLDqx+VcUBIXUPM/qtS7sFI1RUya+Rtzg=
