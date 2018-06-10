@@ -13,7 +13,12 @@ class SessionsController < ApplicationController
     if @user
       session['user_id'] = @user.id
       flash[:notice] = '登录成功'
-      redirect_to root_path
+      if session[:next_url]
+        redirect_to session[:next_url]
+      else
+        redirect_to root_path
+      end
+
     else
       flash[:notice] = '用户名或密码不正确'
       render action: :new
